@@ -122,7 +122,7 @@ class SendQuery(Resource):
         except smtplib.SMTPException as e:
             print('SMTP error occurred: ' + str(e))
         
-        return "ok"
+        return "Your query has been submitted. Query id is " +qid
         
 api.add_resource(KeepAlive, '/keepalive')
 api.add_resource(SendQuery, '/sendquery')
