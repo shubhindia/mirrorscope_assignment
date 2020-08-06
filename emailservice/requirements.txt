@@ -1,0 +1,8 @@
+Flask==1.0.2
+Flask-Cors==3.0.6
+Flask-RESTful==0.3.6
+Flask-HTTPAuth==3.2.4
+flask-restplus==0.12.1
+requests
+werkzeug==0.16.1
+bs4

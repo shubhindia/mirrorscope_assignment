@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: email-service
+  namespace: mirrorscore
+spec:
+  selector:
+    app: email
+  type: LoadBalancer
+  ports:
+  - name: service-http
+    port: 8080
+    protocol: TCP
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: email-deployment
+  namespace: mirrorscore
+  labels:
+    name: email
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: email
+  template:
+    metadata:
+     labels:
+       app: email
+    spec:
+      containers:
+      - name: emailservice
+        image: shubhindia/mirrorscoreemail
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
