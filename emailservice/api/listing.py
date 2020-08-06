@@ -45,7 +45,7 @@ class SendQuery(Resource):
     def post(self):
         
         # Parameters needed to build the message
-        qid = random.randint(1, 999)
+        qid = str(random.randint(1, 999))
         student_name = request.form['name']
         student_contact = request.form['contact']
         student_question = request.form['query']
